@@ -6,14 +6,15 @@ from i_evpatoria.models import TimeStampedModel
 
 
 def excursions_photos_path(instance, filename):
-    return 'excursions_photos/{0}/{1}/{2}/{3}'.format(datetime.now().year, datetime.now().month, instance.excursion.slug, filename)
+    return 'excursions_photos/{0}/{1}/{2}/{3}'.format(datetime.now().year, datetime.now().month,
+                                                      instance.excursion.slug, filename)
 
 
 class Photo(models.Model):
     def validate_image(fieldfile_obj):
         filesize = fieldfile_obj.file.size
         megabyte_limit = 5
-        if filesize > megabyte_limit*1024*1024:
+        if filesize > megabyte_limit * 1024 * 1024:
             raise ValidationError(
                 "Максимальный размер файла %s MB" % str(megabyte_limit))
 
@@ -22,7 +23,7 @@ class Photo(models.Model):
     excursion = models.ForeignKey(
         'Excursion', on_delete=models.CASCADE, related_name='photos', verbose_name='Экскурсия')
     image = models.ImageField(
-        upload_to=excursions_photos_path, max_length=300, validators=[validate_image], verbose_name='Фото', null=True, blank=True)
+        upload_to=excursions_photos_path, max_length=300, validators=[validate_image], verbose_name='Фото')
 
     def __str__(self):
         return self.excursion.name
@@ -33,13 +34,24 @@ class Photo(models.Model):
 
         if self.image:
             pic = Image.open(self.image.path)
-            if  pic.width > 1920 or pic.height > 1400:
+            if pic.width > 1920 or pic.height > 1400:
                 pic.thumbnail(SIZE, Image.LANCZOS)
                 pic.save(self.image.path)
 
     class Meta:
         verbose_name = 'Фото'
         verbose_name_plural = 'Фото'
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=30, verbose_name='Тег')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Тег'
+        verbose_name_plural = 'Теги'
 
 
 class Excursion(TimeStampedModel):
@@ -66,6 +78,7 @@ class Excursion(TimeStampedModel):
         max_digits=7, decimal_places=2, verbose_name='Стоимость', null=True, blank=True)
     types = models.CharField(max_length=10, choices=TYPES,
                              verbose_name='Тип', default='individual')
+    tags = models.ManyToManyField(Tag, blank=True, verbose_name='Теги')
     is_published = models.BooleanField(
         default=True, verbose_name='Опубликовано')
 
