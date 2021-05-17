@@ -9,6 +9,8 @@ pillow = "*"
 django-extensions = "*"
 pygraphviz = "*"
 django-ckeditor = "*"
+django-allauth = "*"
+django-cleanup = "*"
 
 [dev-packages]
 autopep8 = "*"

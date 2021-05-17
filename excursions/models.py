@@ -73,9 +73,11 @@ class Excursion(TimeStampedModel):
         'users.User', on_delete=models.CASCADE, related_name='excursions', verbose_name='Гид')
     name = models.CharField(max_length=255, verbose_name='Название экскурсии')
     slug = models.SlugField(max_length=255, unique=True)
-    description = RichTextUploadingField(config_name='default', verbose_name='Описание')
-    extra = RichTextUploadingField(config_name='mini', verbose_name='Дополнительная информация', blank=True)
-    
+    description = RichTextUploadingField(
+        config_name='default', verbose_name='Описание')
+    extra = RichTextUploadingField(
+        config_name='mini', verbose_name='Дополнительная информация', blank=True)
+
     location = models.CharField(
         max_length=255, verbose_name='Локация', null=True, blank=True)
     duration = models.CharField(
