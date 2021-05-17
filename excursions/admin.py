@@ -19,6 +19,8 @@ class PhotoAdmin(admin.ModelAdmin):
 
 class PhotoInline(admin.TabularInline):
     model = Photo
+    fields = ('image_preview', 'image', 'name')
+    readonly_fields = ('image_preview',)
     max_num = 5
 
 

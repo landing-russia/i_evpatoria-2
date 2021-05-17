@@ -1,7 +1,9 @@
 from datetime import datetime
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.utils.safestring import mark_safe
 from PIL import Image
+from ckeditor_uploader.fields import RichTextUploadingField
 from i_evpatoria.models import TimeStampedModel
 
 
@@ -23,7 +25,15 @@ class Photo(models.Model):
     excursion = models.ForeignKey(
         'Excursion', on_delete=models.CASCADE, related_name='photos', verbose_name='Экскурсия')
     image = models.ImageField(
-        upload_to=excursions_photos_path, max_length=300, validators=[validate_image], verbose_name='Фото')
+        upload_to=excursions_photos_path, max_length=300, validators=[validate_image], verbose_name='Файл')
+
+    def image_preview(self):
+        if self.image:
+            return mark_safe('<img src="{0}" width="150" />'.format(self.image.url))
+        else:
+            return 'Нет фото'
+
+    image_preview.short_description = 'Превью'
 
     def __str__(self):
         return self.excursion.name
@@ -56,16 +66,16 @@ class Tag(models.Model):
 
 class Excursion(TimeStampedModel):
     TYPES = (
-        ('group', 'Групповая'),
         ('individual', 'Индивидуальная'),
+        ('group', 'Групповая'),
     )
     guide = models.ForeignKey(
         'users.User', on_delete=models.CASCADE, related_name='excursions', verbose_name='Гид')
     name = models.CharField(max_length=255, verbose_name='Название экскурсии')
     slug = models.SlugField(max_length=255, unique=True)
-    description = models.TextField(blank=True, verbose_name='Описание')
-    extra = models.TextField(
-        blank=True, verbose_name='Дополнительная информация')
+    description = RichTextUploadingField(config_name='default', verbose_name='Описание')
+    extra = RichTextUploadingField(config_name='mini', verbose_name='Дополнительная информация', blank=True)
+    
     location = models.CharField(
         max_length=255, verbose_name='Локация', null=True, blank=True)
     duration = models.CharField(

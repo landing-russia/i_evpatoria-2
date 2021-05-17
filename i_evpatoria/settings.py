@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_extensions',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'users.apps.UsersConfig',
     'excursions.apps.ExcursionsConfig',
@@ -124,11 +126,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_DIR = BASE_DIR / 'static'
-STATICFILES_DIRS = [STATIC_DIR]
+STATIC_ROOT = BASE_DIR / 'static'
+# STATIC_DIR = BASE_DIR / 'static'
+STATICFILES_DIRS = [BASE_DIR / 'i_evpatoria/static']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -142,3 +147,27 @@ TIME_INPUT_FORMATS = [
     # '%H:%M:%S.%f',
     '%H:%M',
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Format'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Image', 'Youtube', 'Smiley', 'SpecialChar', 'Source']
+        ],
+        'extraPlugins': 'autogrow,youtube',
+        'autoGrow_maxHeight': 800,
+        'autoGrow_minHeight': 400,
+    },
+    'mini': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Smiley', 'SpecialChar', 'Source']
+        ]
+    },
+}
