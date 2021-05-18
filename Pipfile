@@ -6,8 +6,6 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
-django-extensions = "*"
-pygraphviz = "*"
 django-ckeditor = "*"
 django-allauth = "*"
 django-cleanup = "*"

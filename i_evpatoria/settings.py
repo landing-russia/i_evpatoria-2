@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    # 'django_extensions',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_extensions',
     'ckeditor',
     'ckeditor_uploader',
 
