@@ -2,11 +2,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from excursions.admin import guide_site
 
 urlpatterns = [
     path('superadmin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('accounts/', include('allauth.urls')),
+    path('guide-admin/', guide_site.urls),
 ]
 
 if settings.DEBUG:

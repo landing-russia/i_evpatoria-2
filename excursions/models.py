@@ -72,7 +72,7 @@ class Excursion(TimeStampedModel):
     guide = models.ForeignKey(
         'users.User', on_delete=models.CASCADE, related_name='excursions', verbose_name='Гид')
     name = models.CharField(max_length=255, verbose_name='Название экскурсии')
-    slug = models.SlugField(max_length=255, unique=True)
+    slug = models.SlugField(max_length=255, unique=True, verbose_name='Слаг', help_text='Заполняется автоматически')
     description = RichTextUploadingField(
         config_name='default', verbose_name='Описание')
     extra = RichTextUploadingField(
