@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <script src="{% static 'js/app.js' %}" defer></script>
+    <title>{% block title %}{% endblock title %}Я-Евпатория!</title>
+</head>
+
+<body class="antialiased font-sans bg-gray-100">
+
+    {% include 'partials/navbar.html' %}
+
+    {% block content %}{% endblock content %}
+
+</body>
+
+</html>

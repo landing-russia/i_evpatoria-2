@@ -3,9 +3,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from excursions.admin import guide_site
+from .views import *
 
 
 urlpatterns = [
+    path('', include('excursions.urls', namespace='excursions')),
+    path('contacts', contacts, name='contacts'),
     path('users/', include('users.urls', namespace='users')),
     path('superadmin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),

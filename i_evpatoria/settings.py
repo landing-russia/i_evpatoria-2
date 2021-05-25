@@ -133,9 +133,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
+# STATIC_ROOT = BASE_DIR / 'static'
 # STATIC_DIR = BASE_DIR / 'static'
-STATICFILES_DIRS = [BASE_DIR / 'i_evpatoria/static']
+STATICFILES_DIRS = [BASE_DIR / 'static', BASE_DIR / 'i_evpatoria/static']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
