@@ -201,3 +201,5 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
 LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_FORMS = {'login': 'users.forms.CustomLoginForm'}
