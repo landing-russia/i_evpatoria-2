@@ -798,6 +798,11 @@ select{
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 }
+.login > :not([hidden]) ~ :not([hidden]){
+	--tw-space-y-reverse: 0;
+	margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
 .login .login-email-field{
 	display: block;
 	width: 100%;
@@ -887,6 +892,14 @@ select{
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 	}
+}
+.login label{
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 500;
+	--tw-text-opacity: 1;
+	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 .sr-only{
 	position: absolute;
@@ -1259,14 +1272,11 @@ select{
 .font-normal{
 	font-weight: 400;
 }
-.font-extrabold{
-	font-weight: 800;
+.font-bold{
+	font-weight: 700;
 }
 .font-medium{
 	font-weight: 500;
-}
-.font-bold{
-	font-weight: 700;
 }
 .leading-5{
 	line-height: 1.25rem;
