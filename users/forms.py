@@ -55,8 +55,10 @@ class CustomResetPasswordForm(ResetPasswordForm):
     def __init__(self, *args, **kwargs):
         super(CustomResetPasswordForm, self).__init__(*args, **kwargs)
         self.fields['email'].widget.attrs.update({
-            'class': 'login-email-field'
+            'class': 'login-email-field',
+            'placeholder': 'Email'
         })
+        self.fields['email'].label = "Электронная почта"
 
 
 class CustomResetPasswordKeyForm(ResetPasswordKeyForm):

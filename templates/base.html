@@ -19,7 +19,7 @@
             {% include 'partials/navbar.html' %}
 
             {% if messages %}
-                <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-2 font-medium bg-green-600 text-white text-center">
+                <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-2 font-medium bg-green-500 text-white text-center">
                     <ul>
                         {% for message in messages %}
                             <li>{{ message }}</li>
@@ -32,7 +32,7 @@
             {% block content %}{% endblock content %}
         </main>
     </div>
-    <footer class="bg-white">
+    <footer class="bg-white shadow">
         <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <p class="text-center font-medium text-gray-500 text-base">&copy; {% now 'Y' %} <span class="font-bold text-gray-600">Я-Евпатория!</span></p>
         </div>

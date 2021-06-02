@@ -112,4 +112,8 @@
     @apply block text-sm font-medium text-gray-700;
   }
 
+  .bg-white ul.errorlist li {
+    @apply text-red-600 font-semibold;
+  }
+
 }

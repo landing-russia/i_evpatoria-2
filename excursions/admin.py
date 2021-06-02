@@ -67,7 +67,7 @@ class ExcursionAdmin(admin.ModelAdmin):
 
 
 class GuideAdminArea(admin.AdminSite):
-    site_header = 'Экскурсии'
+    site_header = 'Админка для гидов'
     site_title = 'Администрирование экскурсий'
     index_title = 'Экскурсии'
 

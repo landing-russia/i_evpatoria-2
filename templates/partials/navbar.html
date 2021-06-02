@@ -10,7 +10,7 @@
                             alt="Я-Евпатория!" /></a>
                     {% endif %}
                 </div>
-                <div class="hidden sm:block sm:ml-6">
+                <div class="hidden sm:block sm:ml-12">
                     <div class="flex space-x-4">
                         <a href="{% url 'excursions:home' %}"
                             class="navbar-link {% if section == "excursions" %} active {% else %} non-active {% endif %}">Экскурсии</a>
@@ -89,10 +89,10 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu" x-show="mobileOpen"
-        x-transition:enter="transition origin-top ease-out duration-100"
+        x-transition:enter="transition origin-top ease-out duration-300"
         x-transition:enter-start="opacity-0 transform -translate-y-6"
         x-transition:enter-end="opacity-100 transform translate-y-0"
-        x-transition:leave="transition origin-top ease-in duration-100"
+        x-transition:leave="transition origin-top ease-in duration-200"
         x-transition:leave-start="opacity-100 transform translate-y-0"
         x-transition:leave-end="opacity-0 transform -translate-y-6" @click.away="mobileOpen = false">
         <div class="px-2 pt-2 pb-3 space-y-1">
@@ -103,6 +103,7 @@
                 class="mobile-menu-link {% if section == "contacts" %} active {% else %} non-active {% endif %}">Контакты</a>
         </div>
         <div class="pt-4 pb-3 border-t border-gray-100">
+            {% if user.is_authenticated %}
             <div class="flex items-center px-5">
                 <div class="flex-shrink-0">
                     <img class="h-10 w-10 rounded-full"
@@ -124,9 +125,15 @@
                     </svg>
                 </button>
             </div>
+            {% endif %}
             <div class="mt-3 px-2 space-y-1">
+                {% if user.is_authenticated %}
                 <a href="#" class="mobile-menu-link non-active">Профиль</a>
-                <a href="{% url 'account_logout' %}" class="mobile-menu-link non-active">Выйти</a>
+                <a href="{% url 'account_logout' %}" class="mobile-menu-link {% if request.path == '/accounts/logout/' %} active {% else %} non-active {% endif %}">Выйти</a>
+                {% else %}
+                <a href="{% url 'account_login' %}" class="mobile-menu-link {% if request.path == '/accounts/login/' %} active {% else %} non-active {% endif %}">Войти</a>
+                <a href="{% url 'account_signup' %}" class="mobile-menu-link {% if request.path == '/accounts/signup/' %} active {% else %} non-active {% endif %}">Регистрация</a>
+                {% endif %}
             </div>
         </div>
     </div>
