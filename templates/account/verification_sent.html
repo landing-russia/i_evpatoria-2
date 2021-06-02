@@ -1,12 +1,18 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 
-{% load i18n %}
 
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block title %}Подтвердите ваш e-mail | {% endblock %}
 
 {% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
 
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+    <div class="min-h-full flex flex-col py-12 sm:px-6 lg:px-8">
+
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <h2 class="mt-6 text-center text-3xl font-bold text-gray-700">Подтвердите ваш e-mail</h2>
+        </div>
+            <p class="mt-6 text-center font-medium text-gray-600">Мы отправили вам ссылку для подтверждения адреса электронной почты</p>
+    </div>
 
 {% endblock %}
+

@@ -6,7 +6,7 @@
                     {% if section == "excursions" %}
                     <img class="block h-12 w-auto" src="/media/img/logo.svg" alt="Я-Евпатория!" />
                     {% else %}
-                    <a href="{% url 'excursions:home' %}"><img class="block h-12 w-auto" src="/media/img/logo.svg"
+                    <a href="{% url 'excursions:home' %}" class="focus:outline-none"><img class="block h-12 w-auto" src="/media/img/logo.svg"
                             alt="Я-Евпатория!" /></a>
                     {% endif %}
                 </div>
@@ -60,9 +60,9 @@
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
                             <a href="{% url 'account_login' %}"
-                                class="navbar-link {% if request.path == '/accounts/login/' %} active {% else %} non-active {% endif %}">Вход</a>
+                                class="navbar-link {% if request.path == '/accounts/login/' %} active {% else %} non-active {% endif %}">Войти</a>
                             <a href="{% url 'account_signup' %}"
-                                class="navbar-link {% if request.path == '/accounts/signup/' %} active {% else %} non-active {% endif %}">Регистрация</a>
+                                class="navbar-link sm:hidden md:block {% if request.path == '/accounts/signup/' %} active {% else %} non-active {% endif %}">Регистрация</a>
                         </div>
                     </div>
                     {% endif %}
