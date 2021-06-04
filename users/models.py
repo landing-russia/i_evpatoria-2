@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from PIL import Image
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -40,11 +41,18 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
 
+    def validate_image(fieldfile_obj):
+        filesize = fieldfile_obj.file.size
+        megabyte_limit = 3
+        if filesize > megabyte_limit * 1024 * 1024:
+            raise ValidationError(
+                "Максимальный размер файла %s MB" % str(megabyte_limit))
+
     username = None
     email = models.EmailField(unique=True)
 
     avatar = models.ImageField(
-        upload_to='avatars', blank=True, null=True, verbose_name='Аватар')
+        upload_to='avatars', max_length=300, validators=[validate_image], blank=True, null=True, verbose_name='Аватар')
     phone = models.CharField(max_length=15, blank=True, verbose_name='Телефон')
     bio = RichTextUploadingField(
         config_name='mini', verbose_name='О себе', blank=True, null=True)
@@ -62,3 +70,13 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        SIZE = 500, 500
+
+        if self.avatar:
+            pic = Image.open(self.avatar.path)
+            if pic.width > 500 or pic.height > 500:
+                pic.thumbnail(SIZE, Image.LANCZOS)
+                pic.save(self.avatar.path)
