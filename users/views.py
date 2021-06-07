@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django import forms as d_forms
 from . import models, forms
 
 
@@ -28,4 +29,5 @@ class UpdateProfileView(LoginRequiredMixin,UpdateView):
         form = super().get_form(form_class=form_class)
         form.fields["first_name"].widget.attrs = {"placeholder": "Имя", "class": "update-input"}
         form.fields["last_name"].widget.attrs = {"placeholder": "Фамилия", "class": "update-input"}
+        # form.fields["avatar"].widget = d_forms.FileInput
         return form

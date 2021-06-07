@@ -113,7 +113,17 @@
   }
 
   .update-form {
-    @apply space-y-6;
+    @apply space-y-6 text-sm;
+    input[type='checkbox'] {
+      @apply my-3;
+    }
+    label[for=avatar-clear_id] {
+      @apply my-3 inline-flex;
+    }
+  }
+
+  .update-form a {
+    @apply block font-medium text-amber-600 hover:text-amber-500 focus:outline-none focus:text-amber-500;
   }
 
   .update-form .update-input {
