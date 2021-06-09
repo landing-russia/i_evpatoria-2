@@ -26,8 +26,17 @@
                         <span class="text-3xl">{{ user_obj.email|first|upper }}</span>
                     </div>
                 {% endif %}
-
+                {% if user_obj.first_name %}
+                {{ user_obj.first_name }}
+                {% endif %}
+                {% if user_obj.last_name %}
+                {{ user_obj.last_name }}
+                {% endif %}
+                {% if user_obj.guide %}
                 {{ user_obj.email }}
+                {{ user_obj.bio|safe }}
+                {{ user_obj.phone }}
+                {% endif %}
                 {% if user == user_obj %}
                     <a href="{% url 'users:update' %}" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400">Изменить профиль</a>
                 {% endif %}

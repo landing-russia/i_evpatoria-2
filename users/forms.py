@@ -1,4 +1,6 @@
+from django import forms
 from allauth.account.forms import LoginForm, SignupForm, ChangePasswordForm, ResetPasswordForm, ResetPasswordKeyForm
+from .models import User
 
 
 class CustomLoginForm(LoginForm):
@@ -72,3 +74,25 @@ class CustomResetPasswordKeyForm(ResetPasswordKeyForm):
         self.fields['password2'].widget.attrs.update({
             'class': 'login-password-field'
         })
+
+
+class UpdateUserProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = (
+            "first_name",
+            "last_name",
+            "avatar",
+        )
+
+
+class UpdateGuideProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = (
+            "first_name",
+            "last_name",
+            "bio",
+            "avatar",
+            "phone",
+        )
