@@ -72,4 +72,3 @@ class CustomResetPasswordKeyForm(ResetPasswordKeyForm):
         self.fields['password2'].widget.attrs.update({
             'class': 'login-password-field'
         })
-

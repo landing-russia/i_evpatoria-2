@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from PIL import Image
 from ckeditor_uploader.fields import RichTextUploadingField
