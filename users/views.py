@@ -34,5 +34,5 @@ class UpdateProfileView(LoginRequiredMixin, UpdateView):
             form.fields["first_name"].widget.attrs = {"placeholder": "Имя", "class": "update-input"}
             form.fields["last_name"].widget.attrs = {"placeholder": "Фамилия", "class": "update-input"}
             form.fields["bio"].widget.attrs = {"placeholder": "О себе", "class": "update-input"}
-            form.fields["phone"].widget.attrs = {"placeholder": "Телефон", "class": "update-input"}
+            form.fields["phone"].widget.attrs = {"placeholder": "Телефон: +7 978 000-00-00", "class": "update-input"}
         return form

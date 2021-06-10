@@ -23,6 +23,9 @@
   select {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
   }
+  textarea {
+    @apply w-full;
+  }
 }
 
 
@@ -76,13 +79,13 @@
     @apply space-y-6;
   }
 
-  .login .login-email-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
-
-  .login .login-password-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
+  //.login .login-email-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
+  //
+  //.login .login-password-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
 
   .login label {
     @apply block text-sm font-medium text-gray-700;
@@ -92,13 +95,13 @@
     @apply space-y-6;
   }
 
-  .signup .login-email-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
-
-  .signup .login-password-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
+  //.signup .login-email-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
+  //
+  //.signup .login-password-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
 
   .signup label {
     @apply block text-sm font-medium text-gray-700;
@@ -108,13 +111,13 @@
     @apply space-y-6;
   }
 
-  .password_change .login-email-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
-
-  .password_change .login-password-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
+  //.password_change .login-email-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
+  //
+  //.password_change .login-password-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
 
   .password_change label {
     @apply block text-sm font-medium text-gray-700;
@@ -124,13 +127,13 @@
     @apply space-y-6;
   }
 
-  .password_reset .login-email-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
-
-  .password_reset .login-password-field {
-    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
-  }
+  //.password_reset .login-email-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
+  //
+  //.password_reset .login-password-field {
+  //  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  //}
 
   .password_reset label {
     @apply block text-sm font-medium text-gray-700;
