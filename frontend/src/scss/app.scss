@@ -5,6 +5,27 @@
 @tailwind utilities;
 
 
+@layer base {
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
+  }
+}
+
+
 @layer components {
 
   .navbar-link {
@@ -58,6 +79,7 @@
   .login .login-email-field {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
   }
+
   .login .login-password-field {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
   }
@@ -73,6 +95,7 @@
   .signup .login-email-field {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
   }
+
   .signup .login-password-field {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
   }
@@ -88,6 +111,7 @@
   .password_change .login-email-field {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
   }
+
   .password_change .login-password-field {
     @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm;
   }
@@ -114,9 +138,11 @@
 
   .update-form {
     @apply space-y-6 text-sm;
+
     input[type='checkbox'] {
       @apply my-3;
     }
+
     label[for=avatar-clear_id] {
       @apply my-3 inline-flex;
     }
