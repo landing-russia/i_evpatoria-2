@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'ckeditor',
     'ckeditor_uploader',
+    'phonenumber_field',
 
     'users.apps.UsersConfig',
     'excursions.apps.ExcursionsConfig',

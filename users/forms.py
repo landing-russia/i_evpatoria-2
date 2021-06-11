@@ -1,6 +1,7 @@
 from django import forms
 from allauth.account.forms import LoginForm, SignupForm, ChangePasswordForm, ResetPasswordForm, ResetPasswordKeyForm
 from ckeditor.fields import RichTextField
+from phonenumber_field.formfields import PhoneNumberField
 from .models import User
 
 
@@ -91,6 +92,7 @@ class UpdateGuideProfileForm(forms.ModelForm):
     class Meta:
         model = User
         bio = RichTextField()
+        phone = PhoneNumberField()
         fields = (
             "first_name",
             "last_name",

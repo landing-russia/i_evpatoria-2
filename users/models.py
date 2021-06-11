@@ -3,6 +3,7 @@ from django.shortcuts import reverse
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from PIL import Image
+from phonenumber_field.modelfields import PhoneNumberField
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -54,7 +55,7 @@ class User(AbstractUser):
 
     avatar = models.ImageField(
         upload_to='avatars', max_length=300, validators=[validate_image], blank=True, null=True, verbose_name='Аватар')
-    phone = models.CharField(max_length=18, blank=True, verbose_name='Телефон')
+    phone = PhoneNumberField(null=True, blank=True, unique=True, verbose_name='Телефон')
     bio = RichTextUploadingField(
         config_name='mini', verbose_name='О себе', blank=True, null=True)
     birthday = models.DateField(

@@ -9,6 +9,7 @@ pillow = "*"
 django-ckeditor = "*"
 django-allauth = "*"
 django-cleanup = "*"
+django-phonenumber-field = {extras = ["phonenumbers"], version = "*"}
 
 [dev-packages]
 autopep8 = "*"
